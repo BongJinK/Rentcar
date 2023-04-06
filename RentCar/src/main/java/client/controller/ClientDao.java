@@ -95,7 +95,7 @@ public class ClientDao {
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
-			String sql = "SELECT * FROM client_info WHERE client_id = ? ";
+			String sql = "SELECT * FROM client_info WHERE 아이디 = ? ";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
@@ -123,6 +123,26 @@ public class ClientDao {
 	}
 
 	// U
+	public void updatePasswordById(String id, String password) {
+		this.conn = DBManager.getConnection();
+
+		if (this.conn != null) {
+			String sql = "UPDATE client SET password = ? WHERE client_id = ?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, password);
+				this.pstmt.setString(2, id);
+
+				this.pstmt.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+	}
+	
 	public void updateClient(ClientRequestDto clientDto) {
 		this.conn = DBManager.getConnection();
 
@@ -152,19 +172,15 @@ public class ClientDao {
 	}
 
 	// D
-	public void deleteClientById(String id, String password) {
-//		password와 고민하기
-//		Client client = getClientById(id);
+	public void deleteClientById(String id) {
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
 			String sql = "DELETE FROM client WHERE client_id = ?";
-			sql += "AND password = ?";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
 				this.pstmt.setString(1, id);
-				this.pstmt.setString(2, password);
 
 				this.pstmt.execute();
 

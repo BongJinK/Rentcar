@@ -25,7 +25,6 @@ header {
 	border-bottom-left-radius: 5%;
 	display: flex;
 	justify-content: space-between;
-	
 	padding-top: 15px;
 }
 
@@ -129,7 +128,8 @@ td, th {
 	padding: 10px
 }
 
-input:not(#regi_button, #postcode, #login_button) {
+input:not(#regi_button, #postcode, #login_button, #leave_button,
+	#transfer_button, #update_button, #updatePassword_button) {
 	/* border : none;
 	 */
 	width: 250px;
@@ -154,10 +154,20 @@ input:not(#regi_button, #postcode, #login_button) {
 	font-size: 15px;
 }
 
-#regi_button, #login_button {
+#regi_button, #login_button{
 	width: 300px;
 	height: 50px;
 	font-size: 30px;
+	background-color: skyblue;
+	color: black;
+	border-color: smokewhite;
+	margin-bottom: 30px;
+}
+
+.info_button>input{
+	width: 180px;
+	height: 40px;
+	font-size: 20px;
 	background-color: skyblue;
 	color: black;
 	border-color: smokewhite;
@@ -176,4 +186,9 @@ input:not(#regi_button, #postcode, #login_button) {
 
 .login>input[type="submit"] {
 	height: 50px;
+}
+
+.info_button {
+	display: flex;
+	gap: 50px;
 }

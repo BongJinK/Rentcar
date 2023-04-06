@@ -19,8 +19,11 @@ public class RegistAction implements Action{
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		String driver_code = request.getParameter("driver_code");
-		String address = request.getParameter("address_roadNm") + " ";
-		address += request.getParameter("address_detail") + " ";
+		
+		String address = request.getParameter("address_postNum")+ ",";
+		address += request.getParameter("address_roadNm") + ",";
+		address += request.getParameter("address_jibun") + ",";
+		address += request.getParameter("address_detail") + ",";
 		address += request.getParameter("address_extra");
 		
 		ClientRequestDto clientDto = new ClientRequestDto(driver_code, clientId, password, name, phone, address);

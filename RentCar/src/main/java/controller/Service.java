@@ -31,6 +31,7 @@ public class Service extends HttpServlet {
 		System.out.println(command);
 		ActionFactory factory = ActionFactory.getInstance();
 		Action action = factory.getAction(command);
+		System.out.println(command);
 		
 		if(action != null)
 			action.excute(request, response);

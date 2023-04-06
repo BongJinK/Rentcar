@@ -1,3 +1,4 @@
+<%@page import="client.Client"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,6 +10,12 @@
 <title>BongCar : 회원가입</title>
 </head>
 <body>
+	<%
+	String id = request.getParameter("client_id");
+	String name = request.getParameter("name");
+	String phone = request.getParameter("phone");
+	String driverCode = request.getParameter("driver_code");
+	%>
 	<h2>
 		<a href="/"> Bong Car </a>
 	</h2>
@@ -20,7 +27,9 @@
 					<tr>
 						<th>아이디</th>
 						<td><input type="text" id="client_id" name="client_id"
-							maxlength="15" placeholder="아이디"></td>
+							maxlength="15" placeholder="아이디"
+							value="<%=id != null ? id : ""%>"
+							<%=id == null ? "autofocus" : ""%>></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
@@ -37,18 +46,25 @@
 					</tr>
 					<tr>
 						<th>이름</th>
-						<td><input type="text" id="name" name="name"></td>
+						<td><input type="text" id="name" name="name"
+							value="<%=name != null ? name : ""%>"
+							<%=name == null ? "autofocus" : ""%>></td>
 					</tr>
 					<tr>
 						<th>휴대전화</th>
 						<td><input type="tel" id="phone" name="phone"
 							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" maxlength="13"
-							placeholder="010-1234-1234"></td>
+							placeholder="010-1234-1234"
+							value="<%=phone != null ? phone : ""%>"
+							<%=phone == null ? "autofocus" : ""%>></td>
 					</tr>
 					<tr>
 						<th>운전면허번호</th>
 						<td><input type="text" id="driver_code" name="driver_code"
-							pattern="[0-9]{2}-[0-9]{2}-[0-9]{6}-[0-9]{2}" maxlength="15" placeholder="12-12-123456-12"></td>
+							pattern="[0-9]{2}-[0-9]{2}-[0-9]{6}-[0-9]{2}" maxlength="15"
+							placeholder="12-12-123456-12"
+							value="<%=driverCode != null ? driverCode : ""%>"
+							<%=driverCode == null ? "autofocus" : ""%>></td>
 					</tr>
 					<tr>
 						<th>주소</th>

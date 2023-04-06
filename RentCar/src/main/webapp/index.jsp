@@ -17,18 +17,18 @@ if( log != null){
 	id = log.getId();
 }
 %>
-	<%if(id.equals("admin")) {%>
-	<nav>
-		<ul>
-			<li> 공지사항[Notice] 작성 </li>
-			<li> 렌트카[Vehicle] 등록 </li>
-			<li> 렌트 지점[Venue] 관리 </li>
-			<li> 회원[Client] 관리 </li>
-		</ul>
-	</nav><br><br>
-	<%} %>
 	<section>
-	<p> 보오오오옹 카 </p>
+		<% if (id.equals("admin")) {%>
+		<nav>
+			<ul>
+				<li>공지사항[Notice] 작성</li>
+				<li>렌트카[Vehicle] 등록</li>
+				<li>렌트 지점[Venue] 관리</li>
+				<li>회원[Client] 관리</li>
+			</ul>
+		</nav><br><br>
+		<%} %>
+		<p> 보오오오옹 카 </p>
 	<p> 보오오오옹 카 </p>
 	<p> 보오오오옹 카 </p>
 	<p> 보오오오옹 카 </p>

@@ -2,7 +2,10 @@ package controller;
 
 import controller.action.Action;
 import controller.action.LoginAction;
+import controller.action.LogoutAction;
 import controller.action.RegistAction;
+import controller.action.UpdateInformation;
+import controller.action.UpdatePassword;
 
 public class ActionFactory{
 
@@ -21,8 +24,13 @@ public class ActionFactory{
 			action = new RegistAction();
 		}else if( command.equals("login")) {
 			action = new LoginAction();
+		}else if( command.equals("logout")) {
+			action = new LogoutAction();
+		}else if( command.equals("updateInfo")) {
+			action = new UpdateInformation();
+		}else if( command.equals("updatePassword")) {
+			action = new UpdatePassword();
 		}
-		
 		
 		return action;
 	}
