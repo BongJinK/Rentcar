@@ -42,12 +42,12 @@ public class ResInquiryDao {
 
 		if (this.conn != null && client != null) {
 			list = new ArrayList<Object[]>();
-			int driver_code = client.getDriverCode();
+			String driver_code = client.getDriverCode();
 			String sql = "SELECT * FROM reservation_info where driver_code = ?";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
-				this.pstmt.setInt(1, driver_code);
+				this.pstmt.setString(1, driver_code);
 
 				this.rs = this.pstmt.executeQuery();
 
@@ -58,7 +58,7 @@ public class ResInquiryDao {
 					Timestamp regDate = this.rs.getTimestamp(2);
 					int rentalTime = this.rs.getInt(3);
 					String vehicleCode = this.rs.getString(4);
-					int driverCode = this.rs.getInt(5);
+					String driverCode = this.rs.getString(5);
 					Timestamp reservationDate = this.rs.getTimestamp(6);
 					Timestamp returnDate = this.rs.getTimestamp(7);
 					int rentalCost = this.rs.getInt(8);

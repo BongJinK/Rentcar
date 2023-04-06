@@ -1,3 +1,4 @@
+<%@page import="client.Client"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,6 +9,10 @@
 <title>Bong Car</title>
 </head>
 <body>
+<%
+// 스크립틀릿 scriptlet 
+Client log = (Client) session.getAttribute("log"); 
+%>
 	<header>
 		<div class="head_left">
 			<a href="/">
@@ -17,30 +22,20 @@
 		<div class="head_right">
 			<div class="nav">
 				<ul>
-					<li><a href="login">로그인</a></li>
-					<li><a href="regist">회원가입</a></li>
-					<li><a href="logout">로그아웃</a></li>
-					<li><a href="inquiryInfo">회원정보</a></li>
+					<%if(log == null) {%><li><a href="login">로그인</a></li>
+					<li><a href="regist">회원가입</a></li><%} %>
+					<%if(log != null) {%><li><a href="logout">로그아웃</a></li>
+					<li><a href="inquiryInfo">회원정보</a></li><%} %>
 				</ul>
 			</div>
 			<div class="nav_menu">
 				<ul>
-					<li><a href="">렌트</a></li>
-					<li><a href="">이용후기</a></li>
-					<li><a href="">??????</a></li>
+					<li><a href=""> 렌트 </a></li>
+					<li><a href=""> 이용후기 </a></li>
+					<li><a href=""> 공지사항 </a></li>
 				</ul>
 			</div>
 		</div>
 	</header>
-<!-- 	<nav>
-		<ul>
-			<li><a href="login">로그인</a></li>
-			<li><a href="regist">회원가입</a></li>
-		</ul>
-		<ul>
-			<li><a href="logout">로그아웃</a></li>
-			<li><a href="inquiryInfo">회원정보</a></li>
-		</ul>
-	</nav> -->
 </body>
 </html>

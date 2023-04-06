@@ -4,12 +4,12 @@ import java.sql.Timestamp;
 
 public class Client {
 	
-	private int driverCode, phone;
+	private String driverCode;
 	private String id, password, name;
-	private String address;
+	private String address, phone;
 	private Timestamp regDate;
 	
-	public Client(int driverCode, String id, String password, String name, int phone, String address) {
+	public Client(String driverCode, String id, String password, String name, String phone, String address) {
 		this.driverCode = driverCode;
 		this.id = id;
 		this.password = password;
@@ -18,7 +18,7 @@ public class Client {
 		this.address = address;
 	}
 	
-	public Client(int driverCode, String id, String password, String name, int phone, String address, Timestamp regDate) {
+	public Client(String driverCode, String id, String password, String name, String phone, String address, Timestamp regDate) {
 		this.driverCode = driverCode;
 		this.id = id;
 		this.password = password;
@@ -37,11 +37,11 @@ public class Client {
 		this.address = clientDto.getAddress();
 	}
 
-	public int getDriverCode() {
+	public String getDriverCode() {
 		return driverCode;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 

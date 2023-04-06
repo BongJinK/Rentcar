@@ -12,7 +12,6 @@ import controller.action.Action;
 /**
  * Servlet implementation class Service
  */
-
 public class Service extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,7 +28,7 @@ public class Service extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command = request.getParameter("command");
-		
+		System.out.println(command);
 		ActionFactory factory = ActionFactory.getInstance();
 		Action action = factory.getAction(command);
 		

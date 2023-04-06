@@ -25,6 +25,8 @@ header {
 	border-bottom-left-radius: 5%;
 	display: flex;
 	justify-content: space-between;
+	
+	padding-top: 15px;
 }
 
 .head_left {
@@ -49,7 +51,7 @@ h1 {
 .head_right {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: flex-end;
 	padding-right: 50px;
 }
@@ -103,12 +105,12 @@ footer {
 }
 
 h2 {
-    margin: auto;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 15px;
-    font-size: 65px;
-    border-bottom: 2px black solid;
+	margin: auto;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	font-size: 65px;
+	border-bottom: 2px black solid;
 }
 
 form {
@@ -116,34 +118,62 @@ form {
 	align-items: center;
 	flex-direction: column;
 	width: fit-content;
-	
 	margin: auto;
 }
 
 table {
-    margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
-td, th{
-	padding:10px
+td, th {
+	padding: 10px
 }
 
-input:not(#regi_button){
-	border : none;
+input:not(#regi_button, #postcode, #login_button) {
+	/* border : none;
+	 */
+	width: 250px;
 	height: 30px;
+	font-size: 15px;
+	padding-left: 10px;
+	background-color: rgb(233, 233, 233);
+	border-width: 0px;
+	border-style: initial;
+	border-color: initial;
+	border-image: initial;
+	border-radius: 15px;
+	outline: none;
 	margin: 5px;
 }
 
-#sample4_postcode, #postcode{
-	width : 100px;
+#sample4_postcode, #postcode {
+	width: 100px;
 }
 
-#regi_button{
-	width : 300px;
-	height : 50px;
-	font-size : 30px;
+#postcode {
+	font-size: 15px;
+}
+
+#regi_button, #login_button {
+	width: 300px;
+	height: 50px;
+	font-size: 30px;
 	background-color: skyblue;
-	color: white;
+	color: black;
 	border-color: smokewhite;
 	margin-bottom: 30px;
+}
+
+.login {
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+}
+
+.login>span {
+	font-size: 25px;
+}
+
+.login>input[type="submit"] {
+	height: 50px;
 }

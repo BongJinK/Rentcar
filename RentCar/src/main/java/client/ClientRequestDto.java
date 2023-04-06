@@ -4,12 +4,12 @@ import java.sql.Timestamp;
 
 public class ClientRequestDto {
 
-	private int driverCode, phone;
+	private String driverCode;
 	private String id, password, name;
-	private String address;
+	private String phone, address;
 	private Timestamp regDate;
 
-	public ClientRequestDto(int driverCode, String id, String password, String name, int phone, String address) {
+	public ClientRequestDto(String driverCode, String id, String password, String name, String phone, String address) {
 		this.driverCode = driverCode;
 		this.id = id;
 		this.password = password;
@@ -18,19 +18,19 @@ public class ClientRequestDto {
 		this.address = address;
 	}
 
-	public int getDriverCode() {
+	public String getDriverCode() {
 		return driverCode;
 	}
 
-	public void setDriverCode(int driverCode) {
+	public void setDriverCode(String driverCode) {
 		this.driverCode = driverCode;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
