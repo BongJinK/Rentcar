@@ -1,5 +1,6 @@
 package controller;
 
+import controller.action.ADupdateInfomation;
 import controller.action.Action;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
@@ -30,6 +31,8 @@ public class ActionFactory{
 			action = new UpdateInformation();
 		}else if( command.equals("updatePassword")) {
 			action = new UpdatePassword();
+		}else if( command.equals("ADupdateInfomation")) {
+			action = new ADupdateInfomation();
 		}
 		
 		return action;

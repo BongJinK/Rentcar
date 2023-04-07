@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import client.Client;
 import client.controller.ClientDao;
 
 public class UpdatePassword implements Action{
@@ -18,11 +19,9 @@ public class UpdatePassword implements Action{
 		
 		ClientDao clientDao = ClientDao.getInstance();
 		clientDao.updatePasswordById(id, password);
-		
-		// 세션 수정해야함...
-		
-		
-		
+
+		Client client = clientDao.getClientById(id);
+		request.getSession().setAttribute("log", client);
 		
 		response.sendRedirect("/");
 		

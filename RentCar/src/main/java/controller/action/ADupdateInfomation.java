@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import client.ClientRequestDto;
 import client.controller.ClientDao;
 
-public class RegistAction implements Action {
+public class ADupdateInfomation implements Action {
 
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String clientId = request.getParameter("client_id");
+		String driverCode = request.getParameter("driver_code");
+		String id = request.getParameter("client_id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
-		String driver_code = request.getParameter("driver_code");
 
 		String address = request.getParameter("address_postNum") + ",";
 		address += request.getParameter("address_roadNm") + ",";
@@ -26,12 +25,10 @@ public class RegistAction implements Action {
 		address += request.getParameter("address_detail") + ",";
 		address += request.getParameter("address_extra");
 
-		ClientRequestDto clientDto = new ClientRequestDto(driver_code, clientId, password, name, phone, address);
-
 		ClientDao clientDao = ClientDao.getInstance();
-		clientDao.createClient(clientDto);
+		ClientRequestDto clientDto = new ClientRequestDto(driverCode, id, password, name, phone, address);
+		clientDao.updateClient(clientDto);
 
-		response.sendRedirect("/");
+		response.sendRedirect("clientmanagement");
 	}
-
 }

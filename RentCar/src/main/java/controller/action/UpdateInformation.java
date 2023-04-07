@@ -16,14 +16,12 @@ public class UpdateInformation implements Action {
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ClientDao clientDao = ClientDao.getInstance();
 		String driverCode = request.getParameter("driver_code");
-		String id = request.getParameter("id");
+		String id = request.getParameter("client_id");
 		Client client = clientDao.getClientById(id);
-		String password = request.getParameter("password");
-//		if (client != null) {
-//			password = client.getPassword();
-//		}
-		if (!password.equals("")) {
-			System.out.println(password);
+
+		if (client != null) {
+			String password = client.getPassword();
+
 			String name = request.getParameter("name");
 			String phone = request.getParameter("phone");
 			String address = request.getParameter("address_postNum") + ",";
@@ -35,15 +33,11 @@ public class UpdateInformation implements Action {
 			ClientRequestDto clientDto = new ClientRequestDto(driverCode, id, password, name, phone, address);
 			clientDao.updateClient(clientDto);
 
-			// 세션 수정해야함!!
-			
-			
-			
-			
-			
+			client = clientDao.getClientById(id);
+			request.getSession().setAttribute("log", client);
+
 			response.sendRedirect("/");
 		}
-		
 	}
 
 }

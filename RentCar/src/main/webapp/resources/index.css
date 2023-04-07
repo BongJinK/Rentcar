@@ -14,7 +14,7 @@ body {
 	display: grid;
 	grid-template-rows: 120px auto 80px;
 	height: 100vh;
-	width: 1400px;
+	width: 1600px;
 	margin: 0 auto;
 }
 
@@ -154,7 +154,7 @@ input:not(#regi_button, #postcode, #login_button, #leave_button,
 	font-size: 15px;
 }
 
-#regi_button, #login_button{
+#regi_button, #login_button, #update_button{
 	width: 300px;
 	height: 50px;
 	font-size: 30px;
@@ -191,4 +191,14 @@ input:not(#regi_button, #postcode, #login_button, #leave_button,
 .info_button {
 	display: flex;
 	gap: 50px;
+}
+
+.notice_box{
+	position:relative;
+}
+
+.notice_box>input{
+	position:absolute;
+	top:50px;
+	right:10px;
 }

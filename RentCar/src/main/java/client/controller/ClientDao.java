@@ -6,13 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import client.Client;
 import client.ClientRequestDto;
 import util.DBManager;
 
 public class ClientDao {
-
+	
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -73,7 +74,7 @@ public class ClientDao {
 					String name = this.rs.getString(4);
 					String phone = this.rs.getString(5);
 					String address = this.rs.getString(6);
-					Timestamp regDate = this.rs.getTimestamp(7);
+					Timestamp regDate = this.rs.getTimestamp(7, Calendar.getInstance());
 
 					Client client = new Client(driverCode, id, password, name, phone, address, regDate);
 
@@ -121,6 +122,55 @@ public class ClientDao {
 		}
 		return client;
 	}
+	
+	//관리자 계정 정보
+	public Client getClientByIdforAD(String id) {
+		Client client = null;
+		this.conn = DBManager.getConnection();
+
+		if (this.conn != null) {
+			String sql = "SELECT * FROM client WHERE client_id = ?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, id);
+				this.rs = this.pstmt.executeQuery();
+
+				if (this.rs.next()) {
+					String driverCode = this.rs.getString(1);
+					String clientId = this.rs.getString(2);
+					String password = this.rs.getString(3);
+					String name = this.rs.getString(4);
+					String phone = this.rs.getString(5);
+					String address = this.rs.getString(6);
+					Timestamp regDate = this.rs.getTimestamp(7, Calendar.getInstance());
+					
+//					String time = this.rs.getString(7);
+//					System.out.println("time : " + time);
+//					
+//					SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
+//					Date date = null;
+//					Timestamp regDate = null;
+//					try {
+//						date = sdf.parse(time);
+//						regDate = new Timestamp(date.getTime());
+//					} catch (ParseException e) {
+//						e.printStackTrace();
+//					}
+//					
+//					System.out.println("regDate : " + regDate);
+
+					client = new Client(driverCode, clientId, password, name, phone, address, regDate);
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+		}
+		return client;
+	}
 
 	// U
 	public void updatePasswordById(String id, String password) {
@@ -143,6 +193,7 @@ public class ClientDao {
 		}
 	}
 	
+	// 유저 업데이트
 	public void updateClient(ClientRequestDto clientDto) {
 		this.conn = DBManager.getConnection();
 

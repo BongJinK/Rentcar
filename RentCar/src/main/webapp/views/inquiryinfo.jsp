@@ -26,7 +26,6 @@ Object[] address = log.getAddress().split(",");
 						<td><input type="text" id="client_id" name="client_id"
 							maxlength="15" value="<%=log.getId()%>" readonly></td>
 					</tr>
-					<input type="hidden" id="password" name="password" value="<%=log.getPassword()%>">
 					<tr>
 						<th>이름</th>
 						<td><input type="text" id="name" name="name"
@@ -64,7 +63,7 @@ Object[] address = log.getAddress().split(",");
 			<div class="info_button">
 				<input type="button" id="update_button" value="수정하기" onclick="checkInfo(form)">
 				<input type="button" id="updatePassword_button" value="비밀번호 변경" onclick="location.href='updatepassword'">
-				<input type="button" id="leave_button" value="회원탈퇴" onclick="leaveCheck()">						
+				<input type="button" id="leave_button" value="회원탈퇴" onclick="leaveCheck()">					
 			</div>
 		</form>
 	</section>
