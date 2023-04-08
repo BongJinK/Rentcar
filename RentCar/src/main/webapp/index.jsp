@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 </head>
-<jsp:include page="header"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <body>
 	<%
 Client log = (Client) session.getAttribute("log");
@@ -19,7 +19,7 @@ if( log != null){
 %>
 	<section>
 		<% if (id.equals("admin")) {%>
-		<jsp:include page="nav"></jsp:include>
+		<jsp:include page="/nav"></jsp:include>
 		<%} %>
 		<p>보오오오옹 카</p>
 		<p>보오오오옹 카</p>
@@ -31,5 +31,5 @@ if( log != null){
 		<p>보오오오옹 카</p>
 	</section>
 </body>
-<jsp:include page="footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
 </html>

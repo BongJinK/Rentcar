@@ -60,8 +60,11 @@ public class BoardDao {
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
+			// 위 sql 안되서 밑에서 새로 갱신
 			String sql = "SELECT board_writer, title, content, created_date";
-			sql += "FROM board WHERE boardNum = ?";
+			sql += "FROM board WHERE board_number = ?";
+			
+			sql = "SELECT * FROM board WHERE board_number = ?";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
@@ -69,12 +72,14 @@ public class BoardDao {
 				this.rs = this.pstmt.executeQuery();
 
 				if (this.rs.next()) {
-					String boardWriter = this.rs.getString(1);
-					String title = this.rs.getString(2);
-					String content = this.rs.getString(3);
-					Timestamp createdDate = this.rs.getTimestamp(4, Calendar.getInstance());
+					int type = this.rs.getInt(2);
+					String boardWriter = this.rs.getString(3);
+					String title = this.rs.getString(4);
+					String content = this.rs.getString(5);
+					Timestamp createdDate = this.rs.getTimestamp(6, Calendar.getInstance());
+					Timestamp modifiedDate = this.rs.getTimestamp(7, Calendar.getInstance());
 
-					board = new Board(boardNum, boardWriter, title, content, createdDate);
+					board = new Board(boardNum, type, boardWriter, title, content, createdDate, modifiedDate);
 				}
 
 			} catch (SQLException e) {

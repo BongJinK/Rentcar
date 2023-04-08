@@ -202,3 +202,7 @@ input:not(#regi_button, #postcode, #login_button, #leave_button,
 	top:50px;
 	right:10px;
 }
+
+#board_title{
+	width:50%;
+}

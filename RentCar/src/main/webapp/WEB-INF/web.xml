@@ -137,9 +137,23 @@
 		<url-pattern>/writenotice</url-pattern>
 	</servlet-mapping>		
 	
+	<servlet>
+		<servlet-name>noticedetail</servlet-name>
+		<jsp-file>/views/noticedetail.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>noticedetail</servlet-name>
+		<url-pattern>/noticedetail</url-pattern>
+	</servlet-mapping>			
 	
-	
-	
+	<servlet>
+		<servlet-name>updatenotice</servlet-name>
+		<jsp-file>/views/updatenotice.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updatenotice</servlet-name>
+		<url-pattern>/updatenotice</url-pattern>
+	</servlet-mapping>		
 	
 	
 </web-app>

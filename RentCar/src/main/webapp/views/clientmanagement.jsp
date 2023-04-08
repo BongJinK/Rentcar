@@ -10,10 +10,10 @@
 <meta charset="UTF-8">
 <title>ADMINISTRATOR : Client Management</title>
 </head>
-<jsp:include page="header"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <body>
 	<section>
-		<jsp:include page="nav"></jsp:include>
+		<jsp:include page="/nav"></jsp:include>
 		<h2>회원[Client] 관리</h2>
 		<form method="post">
 			<table class="clientInfoTable" border="1">
@@ -48,5 +48,5 @@
 		</form>
 	</section>
 </body>
-<jsp:include page="footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
 </html>
