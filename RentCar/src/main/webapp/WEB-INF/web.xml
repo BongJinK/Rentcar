@@ -118,15 +118,6 @@
 		<servlet-name>notice</servlet-name>
 		<url-pattern>/notice</url-pattern>
 	</servlet-mapping>	
-	
-	<servlet>
-		<servlet-name>review</servlet-name>
-		<jsp-file>/views/review.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>review</servlet-name>
-		<url-pattern>/review</url-pattern>
-	</servlet-mapping>	
 		
 	<servlet>
 		<servlet-name>writenotice</servlet-name>
@@ -155,6 +146,43 @@
 		<url-pattern>/updatenotice</url-pattern>
 	</servlet-mapping>		
 	
+	<servlet>
+		<servlet-name>review</servlet-name>
+		<jsp-file>/views/review.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>review</servlet-name>
+		<url-pattern>/review</url-pattern>
+	</servlet-mapping>		
 	
+	<servlet>
+		<servlet-name>reviewdetail</servlet-name>
+		<jsp-file>/views/reviewdetail.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reviewdetail</servlet-name>
+		<url-pattern>/reviewdetail</url-pattern>
+	</servlet-mapping>		
+
+	<servlet>
+		<servlet-name>writereview</servlet-name>
+		<jsp-file>/views/writereview.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>writereview</servlet-name>
+		<url-pattern>/writereview</url-pattern>
+	</servlet-mapping>		
+
+	<servlet>
+		<servlet-name>updatereview</servlet-name>
+		<jsp-file>/views/updatereview.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updatereview</servlet-name>
+		<url-pattern>/updatereview</url-pattern>
+	</servlet-mapping>	
+
+	
+		
 </web-app>
 

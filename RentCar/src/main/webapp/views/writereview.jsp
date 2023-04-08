@@ -5,14 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="../resources/Administrator.js"></script>
-<title>Bong Car : WriteNotice</title>
+<title>Bong Car : WriteReview</title>
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>
 	<section>
 		<jsp:include page="/nav"></jsp:include>
 		<form method="post" action="../service">
-			<input type="hidden" id="type" name="type" value="0">
+			<input type="hidden" id="type" name="type" value="1">
 			<input type="hidden" id="command" name="command" value="WriteBoard">
 			<div>
 				제목 : <input type="text" id="title" name="title">
@@ -20,7 +20,7 @@
 			<div>
 				내용 : <br>
 				<br>
-				<textarea rows="20" cols="100" id="content" name="content" style="padding: 5px;"></textarea>
+				<textarea rows="20" cols="100" id="content" name="content" style="padding: 10px;"></textarea>
 			</div>
 			<input type="button" value="작성" onclick="checkWrite(form)">
 		</form>

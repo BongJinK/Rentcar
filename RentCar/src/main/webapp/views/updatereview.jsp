@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="../resources/Administrator.js"></script>
-<title>Bong Car : Notice modification</title>
+<title>Bong Car : Review modification</title>
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>
@@ -21,7 +21,7 @@ Board board = dao.getBoardByBoardNum(boardNum);
 	<section>
 		<jsp:include page="/nav"></jsp:include>
 		<form method="post" action="../service">
-			<input type="hidden" id="type" name="type" value="0">
+			<input type="hidden" id="type" name="type" value="1">
 			<input type="hidden" id="type" name="board_number" value="<%=boardNum %>">
 			<input type="hidden" id="command" name="command" value="UpdateBoard">
 			<div>

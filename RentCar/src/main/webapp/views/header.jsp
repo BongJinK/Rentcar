@@ -38,7 +38,7 @@
 			</div>
 			<div class="nav_menu">
 				<ul>
-					<li><a href="notice?common=ture"> 공지사항 </a></li>
+					<li><a href="notice?common=true"> 공지사항 </a></li>
 					<li><a href=""> 렌트 </a></li>
 					<li><a href="review?common=true"> 이용후기 </a></li>
 				</ul>

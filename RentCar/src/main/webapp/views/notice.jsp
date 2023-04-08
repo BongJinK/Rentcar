@@ -50,7 +50,11 @@ String common = request.getParameter("common");
 					Timestamp dates = list.get(i).getCreateDate();
 				%>
 				<tr>
+				<%if(common == null) {%>
 					<td id="board_title"><a href="noticedetail?board_number=<%=list.get(i).getBoardNum() %>"><%=list.get(i).getTitle() %></a></td>
+					<%} else{%>
+					<td id="board_title"><a href="noticedetail?common=true&board_number=<%=list.get(i).getBoardNum() %>"><%=list.get(i).getTitle() %></a></td>
+					<%} %>
 					<td><%=dates %></td>
 				</tr>
 				<%} %>

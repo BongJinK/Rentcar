@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bong car : Notice</title>
+<title>Bong car : Review</title>
 </head>
 <jsp:include page="/header"></jsp:include>
 <body>
@@ -26,8 +26,9 @@ System.out.print(num);
 BoardDao boardDao = BoardDao.getInstance();
 Board board = boardDao.getBoardByBoardNum(num);
 
-String updateHref = "location.href='updatenotice?board_number=" + num + "'";
-String deleteHref = "location.href='../service?command=RemoveNotice&board_number=" + num + "'";
+// notive > review로 수정
+String updateHref = "location.href='updatereview?board_number=" + num + "'";
+String deleteHref = "location.href='../service?command=RemoveReview&board_number=" + num + "'";
 /* System.out.print(board.getCreateDate());
 
 String cDate = String.valueOf(board.getCreateDate()).substring(0, 11);  */
@@ -37,11 +38,9 @@ String cDate = String.valueOf(board.getCreateDate()).substring(0, 11);  */
 		<jsp:include page="/nav"></jsp:include>
 		<%} %>
 		<div class="notice_box">
-			<h2>공지사항[Notice]</h2>
-			<%if(common == null) {%>
-			<input type="button" value="공지사항 작성"
-				onclick="location.href='writenotice?type=0'">
-			<%} %>
+			<h2>이용후기[Review]</h2>
+			<input type="button" value="이용후기 작성"
+				onclick="location.href='writenreview?type=1'">
 		</div>
 		<div>
 			<div id="title"><%=board.getTitle() %></div>
@@ -49,10 +48,10 @@ String cDate = String.valueOf(board.getCreateDate()).substring(0, 11);  */
 			<!-- <div id="created_date"></div> -->
 			<div id="content"><%=board.getContent() %></div>
 		</div>
-		<%if(common == null) {%>
-		<input type="button" value="공지사항 수정"
+		<%if(id.equals(board.getBoardWriter()) || (id.equals("admin") && common == null)) {%>
+		<input type="button" value="수정"
 				onclick="<%=updateHref %>">
-		<input type="button" value="공지사항 삭제"
+		<input type="button" value="삭제"
 				onclick="<%=deleteHref %>">
 		<%} %>
 	</section>

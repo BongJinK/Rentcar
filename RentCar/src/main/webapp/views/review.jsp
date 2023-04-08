@@ -1,3 +1,7 @@
+<%@page import="java.sql.Timestamp"%>
+<%@page import="board.Board"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="board.controller.BoardDao"%>
 <%@page import="util.DBManager"%>
 <%@page import="client.Client"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,7 +23,6 @@ if( log != null){
 }
 
 String common = request.getParameter("common");
-
 %>
 	<section>
 		<% if (id.equals("admin")) {%>
@@ -27,27 +30,40 @@ String common = request.getParameter("common");
 		<%} %>
 		<div class="notice_box">
 			<h2>이용 후기[Review]</h2>
-			<%if(common != null) {%>
-			<input type="button" value="이용후기 작성" onclick="location.href='/'">
-			<%}%>
+			<% if (!id.equals("")) {%>
+			<input type="button" value="이용후기 작성" 
+			onclick="location.href='writereview?type=1'">
+			<%} %>
 		</div>
 		<form method="post">
 			<table class="reviewTable" border="1">
 				<tr>
-					<th>작성자</th>
+					<th>번호</th>
 					<th>제목</th>
+					<th>작성자</th>
 					<th>작성일</th>
 				</tr>
-				<%for(int i =0; i < 100; i++){ %>
+				<%
+				BoardDao boardDao = BoardDao.getInstance();
+				ArrayList<Board> list = new ArrayList<>();
+				list = boardDao.getBoardAllByType(1);	
+				for(int i =0; i < list.size(); i++){
+					Timestamp dates = list.get(i).getCreateDate();
+					int num = list.get(i).getBoardNum();
+				%>
 				<tr>
-					<td>공지사항</td>
-					<td><%= %></td>
-					<td><%= %></td>
+					<td><%=num %></td>
+					<%if(common == null) {%>
+					<td><a href="reviewdetail?board_number=<%=num %>"><%=list.get(i).getTitle() %></a></td>
+					<%} else{%>
+					<td><a href="reviewdetail?common=true&board_number=<%=num %>"><%=list.get(i).getTitle() %></a></td>
+					<%} %>
+					<td><%=list.get(i).getBoardWriter() %></td>
+					<td><%=dates %></td>
 				</tr>
 				<%} %>
 			</table>
 		</form>
-
 	</section>
 </body>
 <jsp:include page="/footer"></jsp:include>
