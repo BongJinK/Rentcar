@@ -8,7 +8,7 @@
 <script src="../resources/validation.js"></script>
 <title>Bong Car : 개인정보</title>
 </head>
-<jsp:include page="header"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <body>
 <%
 Client log = (Client) session.getAttribute("log");
@@ -68,5 +68,5 @@ Object[] address = log.getAddress().split(",");
 		</form>
 	</section>
 </body>
-<jsp:include page="footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
 </html>

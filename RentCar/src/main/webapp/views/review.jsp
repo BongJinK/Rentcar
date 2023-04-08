@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Bong car : Review</title>
 </head>
-<jsp:include page="header"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <body>
 	<%
 Client log = (Client) session.getAttribute("log");
@@ -23,7 +23,7 @@ String common = request.getParameter("common");
 %>
 	<section>
 		<% if (id.equals("admin")) {%>
-		<jsp:include page="nav"></jsp:include>
+		<jsp:include page="/nav"></jsp:include>
 		<%} %>
 		<div class="notice_box">
 			<h2>이용 후기[Review]</h2>
@@ -50,5 +50,5 @@ String common = request.getParameter("common");
 
 	</section>
 </body>
-<jsp:include page="footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
 </html>

@@ -8,7 +8,7 @@
 <script src="../resources/validation.js"></script>
 <title>Bong Car : 비밀번호 변경</title>
 </head>
-<jsp:include page="header"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <body>
 <%
 Client log = (Client) session.getAttribute("log");
@@ -45,5 +45,5 @@ Client log = (Client) session.getAttribute("log");
 		</form>
 	</section>
 </body>
-<jsp:include page="footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
 </html>

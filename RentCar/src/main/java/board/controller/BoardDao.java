@@ -10,7 +10,6 @@ import java.util.Calendar;
 
 import board.Board;
 import board.BoardRequestDto;
-import client.Client;
 import util.DBManager;
 
 public class BoardDao {
@@ -239,7 +238,7 @@ public class BoardDao {
 				this.pstmt = this.conn.prepareStatement(sql);
 				this.pstmt.setString(1, boardDto.getTitle());
 				this.pstmt.setString(2, boardDto.getContent());
-				this.pstmt.setInt(3, boardDto.getBoardNum());
+				this.pstmt.setString(3, String.valueOf(boardDto.getBoardNum()));
 				
 				this.pstmt.execute();
 				

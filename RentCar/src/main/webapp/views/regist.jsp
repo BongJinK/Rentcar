@@ -94,6 +94,6 @@
 		</form>
 	</section>
 </body>
-<jsp:include page="footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
 
 </html>

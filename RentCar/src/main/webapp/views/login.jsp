@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>BongCar : 로그인</title>
 </head>
-<jsp:include page="header"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <body>
 	<section>
 		<h2>로그인</h2>
@@ -21,5 +21,5 @@
 		</form>
 	</section>
 </body>
-<jsp:include page="footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
 </html>

@@ -9,7 +9,7 @@
 <script type="text/javascript" src="../resources/Administrator.js"></script>
 <title>ADMINISTRATOR : Client Management</title>
 </head>
-<jsp:include page="header"></jsp:include>
+<jsp:include page="/header"></jsp:include>
 <body>
 	<%
 	String id = request.getParameter("client_id");
@@ -22,7 +22,7 @@
 	}
 	%>
 	<section>
-		<jsp:include page="nav"></jsp:include>
+		<jsp:include page="/nav"></jsp:include>
 		<h2>회원[Client] 관리</h2>
 		<form method="post" action="../service">
 			<input type="hidden" name="command" value="ADupdateInfomation">
@@ -88,5 +88,5 @@
 	</section>
 
 </body>
-<jsp:include page="footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
 </html>
