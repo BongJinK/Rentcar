@@ -16,6 +16,7 @@ public class UpdateNoticeAction implements Action{
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int type = Integer.parseInt(request.getParameter("type"));
+		int boardNum = Integer.parseInt(request.getParameter("board_number"));
 		Client client = (Client) request.getSession().getAttribute("log");
 		String boardWriter = client.getId();
 		System.out.println(boardWriter);
@@ -25,7 +26,7 @@ public class UpdateNoticeAction implements Action{
 		System.out.println(content);
 		
 		BoardDao boardDao = BoardDao.getInstance();
-		BoardRequestDto dto = new BoardRequestDto(0, type, boardWriter, title, content, null, null);
+		BoardRequestDto dto = new BoardRequestDto(boardNum, type, boardWriter, title, content, null, null);
 		boardDao.updateBoard(dto);
 		
 		response.sendRedirect("notice");

@@ -232,15 +232,19 @@ public class BoardDao {
 		this.conn = DBManager.getConnection();
 		
 		if(this.conn != null) {
-			String sql = "UPDATE board SET title=?,content=? WHERE board_number=?";
+			String sql = "UPDATE test.board SET title=?,content=? WHERE board_number=?";
 			
+			System.out.println("sql ==> " + sql);
 			try {
-				this.pstmt = this.conn.prepareStatement(sql);
-				this.pstmt.setString(1, boardDto.getTitle());
-				this.pstmt.setString(2, boardDto.getContent());
-				this.pstmt.setString(3, String.valueOf(boardDto.getBoardNum()));
+				pstmt = this.conn.prepareStatement(sql);
+				pstmt.setString(1, boardDto.getTitle());
+				pstmt.setString(2, boardDto.getContent());
+				pstmt.setInt(3, boardDto.getBoardNum());
+				System.out.println("pstmt"+pstmt);
 				
-				this.pstmt.execute();
+				
+				int resultInt = pstmt.executeUpdate();
+				System.out.println("resultInt ==> " + resultInt);
 				
 			} catch (SQLException e) {
 				e.printStackTrace();

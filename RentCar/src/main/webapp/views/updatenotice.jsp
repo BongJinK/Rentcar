@@ -22,6 +22,7 @@ Board board = dao.getBoardByBoardNum(boardNum);
 		<jsp:include page="/nav"></jsp:include>
 		<form method="post" action="../service">
 			<input type="hidden" id="type" name="type" value="0">
+			<input type="hidden" id="type" name="board_number" value="<%=boardNum %>">
 			<input type="hidden" id="command" name="command" value="UpdateNoticeAction">
 			<div>
 				제목 : <input type="text" id="title" name="title" value="<%=board.getTitle() %>">

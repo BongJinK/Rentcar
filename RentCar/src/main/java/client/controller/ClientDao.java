@@ -184,7 +184,9 @@ public class ClientDao {
 				this.pstmt.setString(1, password);
 				this.pstmt.setString(2, id);
 
-				this.pstmt.execute();
+//				this.pstmt.execute();
+				int resultInt = this.pstmt.executeUpdate();
+				System.out.println("resultInt ==> " + resultInt);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
