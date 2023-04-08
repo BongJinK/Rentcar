@@ -22,9 +22,11 @@ if( log != null){
 
 String common = request.getParameter("common");
 int num = Integer.parseInt(request.getParameter("board_number"));
+System.out.print(num);
 BoardDao boardDao = BoardDao.getInstance();
 Board board = boardDao.getBoardByBoardNum(num);
 
+String href = "location.href='updatenotice?board_number=" + num + "'";
 /* System.out.print(board.getCreateDate());
 
 String cDate = String.valueOf(board.getCreateDate()).substring(0, 11);  */
@@ -47,7 +49,7 @@ String cDate = String.valueOf(board.getCreateDate()).substring(0, 11);  */
 			<div id="content"><%=board.getContent() %></div>
 		</div>
 		<input type="button" value="공지사항 수정"
-				onclick="location.href='updatenotice?board_number=`${num}`'">
+				onclick="<%=href %>">
 	</section>
 </body>
 <jsp:include page="/footer"></jsp:include>

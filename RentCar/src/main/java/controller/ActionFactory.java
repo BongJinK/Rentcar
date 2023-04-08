@@ -6,6 +6,7 @@ import controller.action.LoginAction;
 import controller.action.LogoutAction;
 import controller.action.RegistAction;
 import controller.action.UpdateInformation;
+import controller.action.UpdateNoticeAction;
 import controller.action.UpdatePassword;
 import controller.action.WriteNoticeAction;
 
@@ -36,6 +37,8 @@ public class ActionFactory{
 			action = new ADupdateInfomation();
 		}else if( command.equals("WriteNoticeAction")) {
 			action = new WriteNoticeAction();
+		}else if( command.equals("UpdateNoticeAction")) {
+			action = new UpdateNoticeAction();
 		}
 		
 		return action;

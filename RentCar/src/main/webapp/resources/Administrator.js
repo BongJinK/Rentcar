@@ -1,7 +1,5 @@
 function checkWrite(htmlForm) {
 
-	let url = "writenotice?";
-
 	const title = document.getElementById("title").value;
 	const content = document.getElementById("content").value;
 
@@ -13,10 +11,8 @@ function checkWrite(htmlForm) {
 		alert("내용이 입력되지 않았습니다.");
 		return;
 	} else {
-		console.log("통과");
 		htmlForm.submit();
 	}
-
 }
 
 function exchangeClientInformation(htmlForm) {

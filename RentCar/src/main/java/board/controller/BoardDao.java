@@ -207,17 +207,42 @@ public class BoardDao {
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
-			String sql = "UPDATE board SET title = ?, content= ?";
-			sql += "WHERE board_number = ?";
+			String sql = "UPDATE board SET title = ?, content= ? WHERE board_number = ?";
+//			String sql = "UPDATE board SET title = ?, content= ?";
+//			sql += "WHERE board_number = ?";
 
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, boardDto.getTitle());
+				System.out.println(boardDto.getTitle());
+				this.pstmt.setString(2, boardDto.getContent());
+				System.out.println(boardDto.getContent());
+				this.pstmt.setInt(3, boardDto.getBoardNum());
+				
+				this.pstmt.executeUpdate();
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+	}
+	
+	public void updateBoard(BoardRequestDto boardDto) {
+		this.conn = DBManager.getConnection();
+		
+		if(this.conn != null) {
+			String sql = "UPDATE board SET title=?,content=? WHERE board_number=?";
+			
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
 				this.pstmt.setString(1, boardDto.getTitle());
 				this.pstmt.setString(2, boardDto.getContent());
 				this.pstmt.setInt(3, boardDto.getBoardNum());
-
+				
 				this.pstmt.execute();
-
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
