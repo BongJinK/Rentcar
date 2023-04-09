@@ -11,7 +11,7 @@ import util.DBManager;
 import vehicle.VehicleRequestDto;
 
 public class BookingDao {
-	
+
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -24,9 +24,8 @@ public class BookingDao {
 	public static BookingDao getInstance() {
 		return instance;
 	}
-	
-	
-	//C
+
+	// C
 	public void createBooking(BookingRequestDto bookingDto) {
 		this.conn = DBManager.getConnection();
 
@@ -38,10 +37,11 @@ public class BookingDao {
 				this.pstmt = this.conn.prepareStatement(sql);
 				this.pstmt.setTimestamp(1, bookingDto.getBookingDate(), Calendar.getInstance());
 				this.pstmt.setInt(2, bookingDto.getRentalTime());
+				System.out.println("bookingDto.getRentalTime() : " + bookingDto.getRentalTime());
 				this.pstmt.setTimestamp(3, bookingDto.getReturnDate(), Calendar.getInstance());
 				this.pstmt.setString(4, bookingDto.getClientId());
-				this.pstmt.setString(4, bookingDto.getDriverCode());
-				this.pstmt.setString(4, bookingDto.getVehicleCode());
+				this.pstmt.setString(5, bookingDto.getDriverCode());
+				this.pstmt.setString(6, bookingDto.getVehicleCode());
 
 				this.pstmt.execute();
 
@@ -51,18 +51,12 @@ public class BookingDao {
 				DBManager.close(conn, pstmt);
 			}
 		}
-	} 
-	
-	
-	//R
-	
-	
-	
-	//U
-	
-	
-	
-	//D
-	
-	
+	}
+
+	// R
+
+	// U
+
+	// D
+
 }

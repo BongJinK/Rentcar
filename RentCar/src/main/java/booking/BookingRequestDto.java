@@ -25,6 +25,16 @@ public class BookingRequestDto {
 		this.vehicleCode = vehicleCode;
 	}
 
+	public BookingRequestDto(int rentalTime, String clientId, Timestamp bookingDate, Timestamp returnDate,
+			String driverCode, String vehicleCode) {
+		this.rentalTime = rentalTime;
+		this.clientId = clientId;
+		this.bookingDate = bookingDate;
+		this.returnDate = returnDate;
+		this.driverCode = driverCode;
+		this.vehicleCode = vehicleCode;
+	}
+
 	public String getBookingCode() {
 		return bookingCode;
 	}
@@ -40,9 +50,9 @@ public class BookingRequestDto {
 	public void setRentalTime(int rentalTime) {
 		this.rentalTime = rentalTime;
 	}
-	
+
 	public String getClientId() {
-		return clientId;
+		return this.clientId;
 	}
 
 	public Timestamp getBookingDate() {

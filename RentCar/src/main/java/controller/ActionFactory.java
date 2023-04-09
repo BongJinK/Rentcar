@@ -6,6 +6,7 @@ import controller.action.ClientLeaveAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
 import controller.action.RegistAction;
+import controller.action.RegistVehicleAction;
 import controller.action.RegistVehicelAction;
 import controller.action.RemoveNoticeAction;
 import controller.action.RemoveReviewAction;
@@ -51,6 +52,8 @@ public class ActionFactory{
 			action = new RemoveReviewAction();
 		}else if( command.equals("registVehicle")) {
 			action = new RegistVehicelAction();
+		}else if( command.equals("registReservation")) {
+			action = new RegistVehicleAction();
 		}
 		
 		return action;

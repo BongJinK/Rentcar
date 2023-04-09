@@ -17,7 +17,10 @@
 <jsp:include page="/header"></jsp:include>
 <body>
 <%
-Client log = (Client) session.getAttribute("log");
+Client log = null;
+if( session.getAttribute("log") != null ){
+	log = (Client) session.getAttribute("log");
+}
 DBManager.getConnection();
 String id = "";
 if( log != null){
@@ -34,6 +37,9 @@ Vehicle vehicle = vehicleDao.getVehicleByCode(code);
 			<h2>렌트[Rent]</h2>
 		</div>
 		<form method="post" action="../service">
+			<% if (log != null) { %>
+			<input type="hidden" name="client_id" value="<%=log.getId() %>">
+			<%} %>
 			<input type="hidden" name="vehicle_code" value="<%=code %>">
 			<input type="hidden" name="time_diff" value="">
 			<input type="hidden" name="command" value="registReservation">
@@ -57,13 +63,15 @@ Vehicle vehicle = vehicleDao.getVehicleByCode(code);
 					</tr>
 				</tbody>
 			</table>
+			<%if( !id.equals("")) {%>
 			대여일
-			<input type="date" id="booking_date"><span><input type="time" id="booking_time" step="1800"></span>
+			<input type="date" id="booking_date" name="booking_date"><span><input type="time" id="booking_time" name="booking_time" step="1800"></span>
 			반납일
-			<input type="date" id="return_date"><span><input type="time" id="return_time" step="1800"></span>
+			<input type="date" id="return_date" name="return_date"><span><input type="time" id="return_time" name="return_time" step="1800"></span>
 			
 			<input type="button" id="reservation_button" value="예약하기"
 				onclick="reservation(form)">
+			<%} %>
 		</form>
 	</section>
 <script>
