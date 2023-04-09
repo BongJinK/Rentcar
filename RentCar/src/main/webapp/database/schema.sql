@@ -43,10 +43,12 @@ CREATE TABLE booking(
    booking_code INTEGER PRIMARY KEY AUTO_INCREMENT,
    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
    rental_time INTEGER NOT NULL,
-   driver_code char(12),
+   client_id VARCHAR(15) NOT NULL,
+   driver_code CHAR(15),
    vehicle_code INTEGER,
    book_date TIMESTAMP NOT NULL,
    return_date TIMESTAMP NOT NULL,
+   FOREIGN KEY (client_id) REFERENCES client(client_id),
    FOREIGN KEY (driver_code) REFERENCES client(driver_code),
    FOREIGN KEY (vehicle_code) REFERENCES vehicle(vehicle_code)
 ) AUTO_INCREMENT = 10000000;
