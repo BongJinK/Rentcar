@@ -8,15 +8,20 @@ public class Vehicle {
 	private int hourlyRate;
 	private String venueCode;
 	private Timestamp regDate;
-	private Boolean isAvailable;
 	
-	public Vehicle(String vehicleCode, String vehicleName, int hourlyRate, String venueCode, Timestamp regDate, boolean isAvailable) {
+	public Vehicle(String vehicleCode, String vehicleName, int hourlyRate, String venueCode, Timestamp regDate) {
 		this.vehicleCode = vehicleCode;
 		this.vehicleName = vehicleName;
 		this.hourlyRate = hourlyRate;
 		this.venueCode = venueCode;
 		this.regDate = regDate;
-		this.isAvailable = isAvailable;
+	}
+	
+	public Vehicle(String vehicleCode, String vehicleName, int hourlyRate, String venueCode) {
+		this.vehicleCode = vehicleCode;
+		this.vehicleName = vehicleName;
+		this.hourlyRate = hourlyRate;
+		this.venueCode = venueCode;
 	}
 	
 	public Vehicle(VehicleRequestDto vehicleDto) {
@@ -25,7 +30,6 @@ public class Vehicle {
 		this.hourlyRate = vehicleDto.getHourlyRate();
 		this.venueCode = vehicleDto.getVenueCode();
 		this.regDate = vehicleDto.getRegDate();
-		this.isAvailable = vehicleDto.getIsAvailable();
 	}
 
 	public String getVehicleCode() {
@@ -46,10 +50,6 @@ public class Vehicle {
 
 	public Timestamp getRegDate() {
 		return regDate;
-	}
-
-	public Boolean getIsAvailable() {
-		return isAvailable;
 	}
 	
 }

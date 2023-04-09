@@ -81,6 +81,32 @@ public class VenueDao {
 		}
 		return list;
 	}
+	
+	public String getVenueNameByCode(String venueCode) {
+		String name = "";
+		this.conn = DBManager.getConnection();
+
+		if (this.conn != null) {
+			String sql = "SELECT venue_name FROM venue WHERE venue_code = ?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, venueCode);
+				
+				this.rs = this.pstmt.executeQuery();
+
+				if (this.rs.next()) {
+					name = this.rs.getString(1);
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+		}
+		return name;
+	}
 
 	// U
 	public void updateVenue(VenueRequedyDto venueDto) {
