@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="../resources/validation.js"></script>
+<script type="text/javascript" src="../resources/reservation.js"></script>
 <title>Bong Car : Rent Car Detail</title>
 </head>
 <jsp:include page="/header"></jsp:include>
@@ -28,15 +28,6 @@ String common = request.getParameter("common");
 String code = request.getParameter("vehicle_code");
 VehicleDao vehicleDao = VehicleDao.getInstance();
 Vehicle vehicle = vehicleDao.getVehicleByCode(code);
-
-
-// 1. 오늘 날짜
-// 2. 오늘 날짜 변경 > 맥스날짜 변경
-// 3. 맥스 날짜 변경 > 오늘 최소 날짜 변경
-
-// 예약 테이블 날짜 중복 안되게
-
-// 오늘 날짜 + 30
 %>
 		<section>
 		<div class="notice_box">
@@ -44,7 +35,8 @@ Vehicle vehicle = vehicleDao.getVehicleByCode(code);
 		</div>
 		<form method="post" action="../service">
 			<input type="hidden" name="vehicle_code" value="<%=code %>">
-			<input type="hidden" name="command" value="registVehicle">
+			<input type="hidden" name="time_diff" value="">
+			<input type="hidden" name="command" value="registReservation">
 			<table border="1">
 				<tbody>
 					<tr>
@@ -66,26 +58,52 @@ Vehicle vehicle = vehicleDao.getVehicleByCode(code);
 				</tbody>
 			</table>
 			대여일
-			<input type="datetime-local" id="dateTimeLocal">
+			<input type="date" id="booking_date"><span><input type="time" id="booking_time" step="1800"></span>
 			반납일
-			<input type="datetime-local" id="dateTimeLocal_return" min="">
+			<input type="date" id="return_date"><span><input type="time" id="return_time" step="1800"></span>
 			
-			<input type="button" id="regi_button" value="예약하기"
+			<input type="button" id="reservation_button" value="예약하기"
 				onclick="reservation(form)">
 		</form>
 	</section>
-	
-	<script>
-        let dateElement = document.getElementById('dateTimeLocal');
-        let returnDate = document.getElementById('dateTimeLocal_return');
-        let date = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, -8);
-        dateElement.value = date;
-        dateElement.setAttribute("min", date);
-        
-        dateElement.addEventListener("change", function() {
-            returnDate.setAttribute("min", dateElement.value);
-        });
-    </script>
+<script>
+//초기 시간 설정
+let bookingdate = document.getElementById('booking_date');
+let today = new Date().toISOString().slice(0, 10);
+bookingdate.value = today;
+
+
+let bookingTime = document.getElementById('booking_time');
+let returnTime = document.getElementById('return_time');
+
+
+bookingTime.addEventListener("change", function() {
+	let current = bookingTime.value.split(":");
+	if (current[1] != "00" && current[1] != "30") {
+		if (current[1] < "30") {
+			current[1] = "30";
+		} else {
+			current[0] = parseInt(current[0]) + 1;
+			current[1] = "00";
+		}
+		bookingTime.value = current.join(":");
+	}
+});
+
+returnTime.addEventListener("change", function() {
+	let current = returnTime.value.split(":");
+	if (current[1] != "00" && current[1] != "30") {
+		if (current[1] < "30") {
+			current[1] = "30";
+		} else {
+			current[0] = parseInt(current[0]) + 1;
+			current[1] = "00";
+		}
+		returnTime.value = current.join(":");
+	}
+});
+</script>
+
 </body>
 <jsp:include page="/footer"></jsp:include>
 </html>

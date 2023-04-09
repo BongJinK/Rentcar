@@ -129,7 +129,8 @@ td, th {
 }
 
 input:not(#regi_button, #postcode, #login_button, #leave_button,
-	#transfer_button, #update_button, #updatePassword_button, #dateTimeLocal, #dateTimeLocal_return) {
+	#transfer_button, #update_button, #updatePassword_button,
+	#dateTimeLocal, #dateTimeLocal_return, #reservation_button) {
 	/* border : none;
 	 */
 	width: 250px;
@@ -154,7 +155,7 @@ input:not(#regi_button, #postcode, #login_button, #leave_button,
 	font-size: 15px;
 }
 
-#regi_button, #login_button, #update_button{
+#regi_button, #login_button, #update_button, #reservation_button {
 	width: 300px;
 	height: 50px;
 	font-size: 30px;
@@ -164,7 +165,7 @@ input:not(#regi_button, #postcode, #login_button, #leave_button,
 	margin-bottom: 30px;
 }
 
-.info_button>input{
+.info_button>input {
 	width: 180px;
 	height: 40px;
 	font-size: 20px;
@@ -193,21 +194,25 @@ input:not(#regi_button, #postcode, #login_button, #leave_button,
 	gap: 50px;
 }
 
-.notice_box{
-	position:relative;
+.notice_box {
+	position: relative;
 }
 
-.notice_box>input{
-	position:absolute;
-	top:50px;
-	right:10px;
+.notice_box>input {
+	position: absolute;
+	top: 50px;
+	right: 10px;
 }
 
-#board_title{
-	width:50%;
+#board_title {
+	width: 50%;
 }
 
 img.car {
-    height: 100px;
-    width: 300px;
+	height: 100px;
+	width: 300px;
+}
+
+#reservation_button {
+	margin-top: 20px;
 }
