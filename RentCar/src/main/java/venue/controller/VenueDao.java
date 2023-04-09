@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import util.DBManager;
 import venue.Venue;
@@ -65,8 +67,9 @@ public class VenueDao {
 				while (this.rs.next()) {
 					String venueCode = this.rs.getString(1);
 					String venueName = this.rs.getString(2);
+					Timestamp regDate = this.rs.getTimestamp(3, Calendar.getInstance());
 
-					Venue venue = new Venue(venueCode, venueName);
+					Venue venue = new Venue(venueCode, venueName, regDate);
 					list.add(venue);
 				}
 
