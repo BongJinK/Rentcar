@@ -129,7 +129,7 @@ td, th {
 }
 
 input:not(#regi_button, #postcode, #login_button, #leave_button,
-	#transfer_button, #update_button, #updatePassword_button) {
+	#transfer_button, #update_button, #updatePassword_button, #dateTimeLocal, #dateTimeLocal_return) {
 	/* border : none;
 	 */
 	width: 250px;
@@ -205,4 +205,9 @@ input:not(#regi_button, #postcode, #login_button, #leave_button,
 
 #board_title{
 	width:50%;
+}
+
+img.car {
+    height: 100px;
+    width: 300px;
 }

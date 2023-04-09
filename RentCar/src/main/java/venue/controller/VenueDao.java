@@ -50,7 +50,37 @@ public class VenueDao {
 	}
 
 	// R
-	public ArrayList<Venue> getBoardAllByKeyword(String keyword) {
+	public ArrayList<Venue> getVenueAll( ) {
+		ArrayList<Venue> list = new ArrayList<>();
+		this.conn = DBManager.getConnection();
+
+		if (this.conn != null) {
+			String sql = "SELECT * FROM venue order by venue_code";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.rs = this.pstmt.executeQuery();
+
+				while (this.rs.next()) {
+					String venueCode = this.rs.getString(1);
+					String venueName = this.rs.getString(2);
+					Timestamp regDate = this.rs.getTimestamp(3, Calendar.getInstance());
+
+					Venue venue = new Venue(venueCode, venueName, regDate);
+					list.add(venue);
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+		}
+		return list;
+	}
+	
+	
+	public ArrayList<Venue> getVenueAllByKeyword(String keyword) {
 		ArrayList<Venue> list = new ArrayList<>();
 		this.conn = DBManager.getConnection();
 

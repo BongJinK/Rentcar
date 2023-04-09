@@ -48,6 +48,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>check</servlet-name>
+		<jsp-file>/views/check.jsp</jsp-file>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>check</servlet-name>
+		<url-pattern>/check</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
 		<servlet-name>footer</servlet-name>
 		<jsp-file>/views/footer.jsp</jsp-file>
 	</servlet>	
@@ -181,6 +190,34 @@
 		<servlet-name>updatereview</servlet-name>
 		<url-pattern>/updatereview</url-pattern>
 	</servlet-mapping>	
+
+	<servlet>
+		<servlet-name>rent</servlet-name>
+		<jsp-file>/views/rent.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rent</servlet-name>
+		<url-pattern>/rent</url-pattern>
+	</servlet-mapping>	
+
+	<servlet>
+		<servlet-name>registvehicle</servlet-name>
+		<jsp-file>/views/registvehicle.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>registvehicle</servlet-name>
+		<url-pattern>/registvehicle</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>vehicledetail</servlet-name>
+		<jsp-file>/views/vehicledetail.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>vehicledetail</servlet-name>
+		<url-pattern>/vehicledetail</url-pattern>
+	</servlet-mapping>	
+
 
 	
 		

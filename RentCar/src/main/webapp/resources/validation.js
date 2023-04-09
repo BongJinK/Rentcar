@@ -1,3 +1,25 @@
+function checkVehicle(htmlForm){
+	
+	const name = document.getElementById("vehicle_name").value;
+	const rate = document.getElementById("hourly_rate").value;
+	const code = document.getElementById("vehicle_code").value;
+
+
+	if ((name == '' || name == undefined || name == null || name == 'null')) {
+		alert("차량명이 입력되지 않았습니다.");
+		return;
+	} else if ((rate == '' || rate == undefined || rate == null || rate == 'null')) {
+		alert("시간당 렌트비용이 입력되지 않았습니다.");
+		return;
+	} else if ((code == '' || code == undefined || code == null || code == 'null')) {
+		alert("지점 코드가 입력되지 않았습니다.");
+		return;
+	}  else {
+		htmlForm.submit();
+	}
+	
+}
+
 // 회원가입정보 확인
 function checkValues(htmlForm) {
 

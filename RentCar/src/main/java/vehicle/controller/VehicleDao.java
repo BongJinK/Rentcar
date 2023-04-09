@@ -32,15 +32,14 @@ public class VehicleDao {
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
-			String sql = "INSERT INTO vehicle (vehicle_code, vehicle_name,";
-			sql += "hourly_rate, venue_code) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO vehicle (vehicle_name,";
+			sql += "hourly_rate, venue_code) VALUES (?,?,?)";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
-				this.pstmt.setString(2, vehicleDto.getVehicleCode());
-				this.pstmt.setString(3, vehicleDto.getVehicleName());
-				this.pstmt.setInt(1, vehicleDto.getHourlyRate());
-				this.pstmt.setString(4, vehicleDto.getVenueCode());
+				this.pstmt.setString(1, vehicleDto.getVehicleName());
+				this.pstmt.setInt(2, vehicleDto.getHourlyRate());
+				this.pstmt.setString(3, vehicleDto.getVenueCode());
 
 				this.pstmt.execute();
 
@@ -59,7 +58,9 @@ public class VehicleDao {
 		this.conn = DBManager.getConnection();
 
 		if (this.conn != null) {
-			String sql = "SELECT * FROM vehicle ORDER BY vehicle_name";
+			String sql = "SELECT vehicle_code, vehicle_name, hourly_rate, venue_code,";
+			sql += "(select venue_name from venue where venue_code = vehicle.venue_code) as venue_name,";
+			sql += "reg_date FROM vehicle vehicle ORDER BY vehicle_name";
 
 			try {
 				this.pstmt = this.conn.prepareStatement(sql);
@@ -70,9 +71,10 @@ public class VehicleDao {
 					String vehicleNmae = this.rs.getString(2);
 					int hourlyRate = this.rs.getInt(3);
 					String venueCode = this.rs.getString(4);
-					Timestamp regDate = this.rs.getTimestamp(5, Calendar.getInstance());
+					String venueName = this.rs.getString(5);
+					Timestamp regDate = this.rs.getTimestamp(6, Calendar.getInstance());
 
-					Vehicle vehicle = new Vehicle(vehicleCode, vehicleNmae, hourlyRate, venueCode, regDate);
+					Vehicle vehicle = new Vehicle(vehicleCode, vehicleNmae, hourlyRate, venueCode, regDate, venueName);
 
 					list.add(vehicle);
 				}
@@ -86,6 +88,41 @@ public class VehicleDao {
 		return list;
 	}
 
+	// 차량 가져오기
+	public Vehicle getVehicleByCode(String vehiclecode) {
+		Vehicle vehicle = null;
+		this.conn = DBManager.getConnection();
+
+		if (this.conn != null) {
+			String sql = "SELECT vehicle_name, hourly_rate, venue_code,";
+			sql += "(select venue_name from venue where venue_code = vehicle.venue_code) as venue_name,";
+			sql += "reg_date FROM vehicle vehicle WHERE vehicle_code=?";
+
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.pstmt.setString(1, vehiclecode);
+
+				this.rs = this.pstmt.executeQuery();
+
+				while (this.rs.next()) {
+					String vehicleNmae = this.rs.getString(1);
+					int hourlyRate = this.rs.getInt(2);
+					String venueCode = this.rs.getString(3);
+					String venueName = this.rs.getString(4);
+					Timestamp regDate = this.rs.getTimestamp(5);
+
+					vehicle = new Vehicle(vehiclecode, vehicleNmae, hourlyRate, venueCode, regDate, venueName);
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt, rs);
+			}
+		}
+		return vehicle;
+	}
+	
 	// 차량 검색// 삭제 고려
 	public ArrayList<Vehicle> getVehicleByKeyword(String keyword) {
 		ArrayList<Vehicle> list = new ArrayList<>();
