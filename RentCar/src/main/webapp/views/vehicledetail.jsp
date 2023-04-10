@@ -35,9 +35,6 @@ Vehicle vehicle = vehicleDao.getVehicleByCode(code);
 			<h2>렌트[Rent]</h2>
 		</div>
 		<form method="post" action="../service">
-			<% if (log != null) { %>
-			<input type="hidden" name="client_id" value="<%=log.getId() %>">
-			<%} %>
 			<input type="hidden" name="vehicle_code" value="<%=code %>">
 			<input type="hidden" name="time_diff" value="">
 			<input type="hidden" name="command" value="registReservation">

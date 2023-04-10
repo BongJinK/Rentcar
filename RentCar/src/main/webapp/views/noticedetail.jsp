@@ -22,7 +22,6 @@ if( log != null){
 
 String common = request.getParameter("common");
 int num = Integer.parseInt(request.getParameter("board_number"));
-System.out.print(num);
 BoardDao boardDao = BoardDao.getInstance();
 Board board = boardDao.getBoardByBoardNum(num);
 

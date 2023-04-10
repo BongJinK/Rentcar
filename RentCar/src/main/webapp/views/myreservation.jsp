@@ -1,6 +1,6 @@
+<%@page import="reservation.controller.ReservationDao"%>
 <%@page import="reservation.Reservation"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="booking.controller.BookingDao"%>
 <%@page import="client.Client"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -43,7 +43,7 @@ if( session.getAttribute("log") != null){
 					<th>차량위치</th>
 				</tr>
 				<%
-				BookingDao dao = BookingDao.getInstance();
+				ReservationDao dao = ReservationDao.getInstance();
 
 				ArrayList<Reservation> list = new ArrayList<>();
 				list = dao.getBookingByClientId(id);

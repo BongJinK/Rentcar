@@ -2,61 +2,41 @@ function reservation(htmlForm) {
 
 	let bookingdate = document.getElementById('booking_date').value;
 	let returndate = document.getElementById('return_date').value;
-	let bookingTime = document.getElementById('booking_time').value;
-	let returnTime = document.getElementById('return_time').value;
-
-	let now = new Date();
-	let currentDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-	let currentTime = now.getTime();
 	
+	let bookingTime = document.getElementById('booking_time').value.split(":");
+	let returnTime = document.getElementById('return_time').value.split(":");
 
-	let bdValue = new Date(bookingdate);
-	let rdValue = new Date(returndate);
-	let btValue = new Date(`1970-01-01T${bookingTime}`);
-	let rtValue = new Date(`1970-01-01T${returnTime}`);
+	const start = new Date(bookingdate);
+	start.setHours(parseInt(bookingTime[0]));
+	start.setMinutes(parseInt(bookingTime[1]));
 	
-	let bookingTimeInput = document.getElementById('booking_time');
-	let returnTimeInput = document.getElementById('return_time');
-
-bookingTimeInput.addEventListener('change', function() {
-    bookingTime = bookingTimeInput.value;
-    btValue = new Date(`1970-01-01T${bookingTime}`);
-});
-
-returnTimeInput.addEventListener('change', function() {
-    returnTime = returnTimeInput.value;
-    rtValue = new Date(`1970-01-01T${returnTime}`);
-});
+	const end = new Date(returndate);	
+	end.setHours(parseInt(returnTime[0]));
+	end.setMinutes(parseInt(returnTime[1]));
 	
+	const currentDate = new Date();
 	
-	console.log("뭐지?");
-	console.log(btValue);
-	console.log(rtValue);
-
-	if (bdValue < currentDate) {
-		alert("렌트일은 오늘 날짜 이후로 선택하여 주세요.")
+	console.log("start : ", start);
+	console.log("end : ", end);
+	console.log("end < start : ",end < start);
+	console.log("end.getTime < start.getTime : ",end.getTime() < start.getTime());
+	console.log("start.getTime() < currentDate.getTime() : ", start.getTime() < currentDate.getTime());
+	
+	let gap = end.getTime() - start.getTime();
+	gap = gap / (1000 * 60 * 60);
+	console.log(gap);
+	
+	if (start < currentDate) {
+		alert("대여일은 현재 시간 이후로 선택하여 주세요.")
 		return;
-	} else if (rdValue <= bdValue) {
-		alert("반납일은 대여일 이후로 선택하여 주세요.")
+	} else if (end.getTime() < start.getTime()) {
+		alert("반납일은 대여일보다 빠를 수 없습니다.")
 		return;
-	} else if (btValue.getTime() === currentDate.getTime() && btValue.getTime() < currentTime) {
+	} else if (start.getTime() < currentDate.getTime()) {
 		alert("대여시간은 현재 시간 이후로 선택하여 주세요.")
 		return;
 	}
-	
-	console.log(rtValue.getTime());
-	console.log(bdValue.getTime());
 
-	let timeDiff = rtValue.getTime() - bdValue.getTime();
-	let timeDiffHour = Math.ceil(timeDiff / (1000 * 60 * 60) );
-	
-	console.log(timeDiffHour);
-
-	htmlForm.booking_date.value = bdValue.toISOString().slice(0, 10);
-	htmlForm.return_date.value = rdValue.toISOString().slice(0, 10);
-	htmlForm.booking_time.value = btValue.toTimeString().slice(0, 5);
-	htmlForm.return_time.value = rtValue.toTimeString().slice(0, 5);
-	htmlForm.time_diff.value = timeDiffHour;
-
+	htmlForm.time_diff.value = gap;
 	htmlForm.submit();
 }
