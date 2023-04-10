@@ -55,14 +55,16 @@ CREATE TABLE booking(
 
 CREATE VIEW reservation_info AS
 SELECT 
-   b.booking_code as 예약번호,
-   b.reg_date as 예약신청일,
-   b.rental_time as 대여시간,
-   b.vehicle_code as 차량번호,
-   b.driver_code as 운전면허번호,
-   b.book_date as 예약일,
-   b.return_date as 반납일,
-   (SELECT v.hourly_rate * b.rental_time FROM vehicle v WHERE v.vehicle_code = b.vehicle_code) as 렌트비용,
-   (SELECT venue_name FROM venue WHERE venue_code = (SELECT venue_code FROM vehicle WHERE vehicle_code = b.vehicle_code)) AS 차량위치
+   b.booking_code as reservation_code,
+   b.reg_date as regist_date,
+   b.rental_time as rental_time,
+   b.vehicle_code as vehicle_code,
+   b.client_id as client_id,
+   (SELECT client_name FROM client WHERE client_id = b.client_id) as client_name,
+   b.driver_code as driver_code,
+   b.book_date as booking_date,
+   b.return_date as return_date,
+   (SELECT v.hourly_rate * b.rental_time FROM vehicle v WHERE v.vehicle_code = b.vehicle_code) as rental_cost,
+   (SELECT venue_name FROM venue WHERE venue_code = (SELECT venue_code FROM vehicle WHERE vehicle_code = b.vehicle_code)) AS vehicle_venue
 FROM booking b
-ORDER BY 렌트비용 DESC;
+ORDER BY reservation_code;

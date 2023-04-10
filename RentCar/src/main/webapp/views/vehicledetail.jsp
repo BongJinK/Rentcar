@@ -18,14 +18,12 @@
 <body>
 <%
 Client log = null;
+String id = "";
 if( session.getAttribute("log") != null ){
 	log = (Client) session.getAttribute("log");
-}
-DBManager.getConnection();
-String id = "";
-if( log != null){
 	id = log.getId();
 }
+DBManager.getConnection();
 
 String common = request.getParameter("common");
 String code = request.getParameter("vehicle_code");

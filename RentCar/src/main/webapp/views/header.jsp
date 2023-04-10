@@ -30,6 +30,7 @@
 					<li><a href="../service?command=logout">로그아웃</a></li>
 					<%if (!log.getId().equals("admin")) {%>
 					<li><a href="inquiryinfo">회원정보</a></li>
+					<li><a href="myreservation">나의 예약정보</a></li>
 					<%} else {%>
 					<li>[ 관리자 ]</li>
 					<%}%>

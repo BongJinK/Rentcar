@@ -15,12 +15,13 @@
 <jsp:include page="/header"></jsp:include>
 <body>
 <%
-Client log = (Client) session.getAttribute("log");
-DBManager.getConnection();
+Client log = null;
 String id = "";
-if( log != null){
+if( session.getAttribute("log") != null){
+	log = (Client) session.getAttribute("log");
 	id = log.getId();
 }
+DBManager.getConnection();
 
 String common = request.getParameter("common");
 %>

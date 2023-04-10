@@ -3,11 +3,11 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-	
+
 	<session-config>
 		<session-timeout>10</session-timeout>
 	</session-config>
-	
+
 	<display-name>RentCar</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -17,7 +17,7 @@
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 	</welcome-file-list>
-	
+
 	<!-- servlet Mapping -->
 	<servlet>
 		<servlet-name>Service</servlet-name>
@@ -27,44 +27,44 @@
 		<servlet-name>Service</servlet-name>
 		<url-pattern>/service</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- JSP Mapping -->
 	<servlet>
 		<servlet-name>header</servlet-name>
 		<jsp-file>/views/header.jsp</jsp-file>
-	</servlet>	
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>header</servlet-name>
 		<url-pattern>/header</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>nav</servlet-name>
 		<jsp-file>/views/nav.jsp</jsp-file>
-	</servlet>	
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>nav</servlet-name>
 		<url-pattern>/nav</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>check</servlet-name>
 		<jsp-file>/views/check.jsp</jsp-file>
-	</servlet>	
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>check</servlet-name>
 		<url-pattern>/check</url-pattern>
-	</servlet-mapping>	
-	
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>footer</servlet-name>
 		<jsp-file>/views/footer.jsp</jsp-file>
-	</servlet>	
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>footer</servlet-name>
 		<url-pattern>/footer</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>regist</servlet-name>
 		<jsp-file>/views/regist.jsp</jsp-file>
@@ -73,7 +73,7 @@
 		<servlet-name>regist</servlet-name>
 		<url-pattern>/regist</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>login</servlet-name>
 		<jsp-file>/views/login.jsp</jsp-file>
@@ -109,7 +109,7 @@
 		<servlet-name>clientmanagement</servlet-name>
 		<url-pattern>/clientmanagement</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>cmupdate</servlet-name>
 		<jsp-file>/views/cmupdate.jsp</jsp-file>
@@ -126,8 +126,8 @@
 	<servlet-mapping>
 		<servlet-name>notice</servlet-name>
 		<url-pattern>/notice</url-pattern>
-	</servlet-mapping>	
-		
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>writenotice</servlet-name>
 		<jsp-file>/views/writenotice.jsp</jsp-file>
@@ -135,8 +135,8 @@
 	<servlet-mapping>
 		<servlet-name>writenotice</servlet-name>
 		<url-pattern>/writenotice</url-pattern>
-	</servlet-mapping>		
-	
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>noticedetail</servlet-name>
 		<jsp-file>/views/noticedetail.jsp</jsp-file>
@@ -144,8 +144,8 @@
 	<servlet-mapping>
 		<servlet-name>noticedetail</servlet-name>
 		<url-pattern>/noticedetail</url-pattern>
-	</servlet-mapping>			
-	
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>updatenotice</servlet-name>
 		<jsp-file>/views/updatenotice.jsp</jsp-file>
@@ -153,8 +153,8 @@
 	<servlet-mapping>
 		<servlet-name>updatenotice</servlet-name>
 		<url-pattern>/updatenotice</url-pattern>
-	</servlet-mapping>		
-	
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>review</servlet-name>
 		<jsp-file>/views/review.jsp</jsp-file>
@@ -162,8 +162,8 @@
 	<servlet-mapping>
 		<servlet-name>review</servlet-name>
 		<url-pattern>/review</url-pattern>
-	</servlet-mapping>		
-	
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>reviewdetail</servlet-name>
 		<jsp-file>/views/reviewdetail.jsp</jsp-file>
@@ -171,7 +171,7 @@
 	<servlet-mapping>
 		<servlet-name>reviewdetail</servlet-name>
 		<url-pattern>/reviewdetail</url-pattern>
-	</servlet-mapping>		
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>writereview</servlet-name>
@@ -180,7 +180,7 @@
 	<servlet-mapping>
 		<servlet-name>writereview</servlet-name>
 		<url-pattern>/writereview</url-pattern>
-	</servlet-mapping>		
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>updatereview</servlet-name>
@@ -189,7 +189,7 @@
 	<servlet-mapping>
 		<servlet-name>updatereview</servlet-name>
 		<url-pattern>/updatereview</url-pattern>
-	</servlet-mapping>	
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>rent</servlet-name>
@@ -198,7 +198,7 @@
 	<servlet-mapping>
 		<servlet-name>rent</servlet-name>
 		<url-pattern>/rent</url-pattern>
-	</servlet-mapping>	
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>registvehicle</servlet-name>
@@ -208,7 +208,7 @@
 		<servlet-name>registvehicle</servlet-name>
 		<url-pattern>/registvehicle</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>vehicledetail</servlet-name>
 		<jsp-file>/views/vehicledetail.jsp</jsp-file>
@@ -216,10 +216,24 @@
 	<servlet-mapping>
 		<servlet-name>vehicledetail</servlet-name>
 		<url-pattern>/vehicledetail</url-pattern>
-	</servlet-mapping>	
+	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>reservation</servlet-name>
+		<jsp-file>/views/reservation.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reservation</servlet-name>
+		<url-pattern>/reservation</url-pattern>
+	</servlet-mapping>
 
-	
-		
+	<servlet>
+		<servlet-name>myreservation</servlet-name>
+		<jsp-file>/views/myreservation.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myreservation</servlet-name>
+		<url-pattern>/myreservation</url-pattern>
+	</servlet-mapping>
 </web-app>
 

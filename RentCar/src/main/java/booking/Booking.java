@@ -24,7 +24,7 @@ public class Booking {
 		this.driverCode = driverCode;
 		this.vehicleCode = vehicleCode;
 	}
-	
+
 	public Booking(BookingRequestDto bookingDto) {
 		this.bookingCode = bookingDto.getBookingCode();
 		this.regDate = bookingDto.getRegDate();
@@ -46,7 +46,7 @@ public class Booking {
 	public int getRentalTime() {
 		return rentalTime;
 	}
-	
+
 	public String getClientId() {
 		return clientId;
 	}
