@@ -9,6 +9,8 @@ public class ClientRequestDto {
 	private String phone, address;
 	private Timestamp regDate;
 
+	public ClientRequestDto() {}
+	
 	public ClientRequestDto(String driverCode, String id, String password, String name, String phone, String address) {
 		this.driverCode = driverCode;
 		this.id = id;

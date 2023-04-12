@@ -235,5 +235,24 @@
 		<servlet-name>myreservation</servlet-name>
 		<url-pattern>/myreservation</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>venue</servlet-name>
+		<jsp-file>/views/venue.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>venue</servlet-name>
+		<url-pattern>/venue</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>registvenue</servlet-name>
+		<jsp-file>/views/registvenue.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>registvenue</servlet-name>
+		<url-pattern>/registvenue</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
 

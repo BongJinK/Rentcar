@@ -23,6 +23,61 @@ function checkVehicle(htmlForm){
 // 회원가입정보 확인
 function checkValues(htmlForm) {
 
+	const clientId = document.getElementById("client_id").value;
+	const password = document.getElementById("password").value;
+	const psCheck = document.getElementById("password_check").value;
+	const name = document.getElementById("name").value;
+	const phone = document.getElementById("phone").value;
+	const driverCode = document.getElementById("driver_code").value;
+
+	const postcode = document.getElementById("sample4_postcode").value;
+	const roadAddress = document.getElementById("sample4_roadAddress").value;
+	const jibunAddress = document.getElementById("sample4_jibunAddress").value;
+	const detailAddress = document.getElementById("sample4_detailAddress").value;
+	const extraAddress = document.getElementById("sample4_extraAddress").value;
+
+	console.log(clientId);
+	console.log(password);
+	console.log(psCheck);
+	console.log(name);
+	console.log(phone);
+	console.log(driverCode);
+	console.log(postcode);
+	console.log(roadAddress);
+	console.log(jibunAddress);
+	console.log(detailAddress);
+	console.log(extraAddress);
+
+	if (clientId === "") {
+		alert('아이디가 입력되지 않았습니다.');
+		return;
+	} else if (password === "" || psCheck === "") {
+		alert('비밀번호가 입력되지 않았습니다.');
+		return;
+	} else if (name === "") {
+		alert('성함이 입력되지 않았습니다.');
+		return;
+	} else if (phone === "") {
+		alert('휴대전화 번호가 입력되지 않았습니다.');
+		return;
+	} else if (driverCode === "") {
+		alert('운전면허번호가 입력되지 않았습니다.');
+		return;
+	} else if (postcode === "" || roadAddress === "" || jibunAddress === "" || extraAddress === "") {
+		alert('우편번호 찾기를 이용해 우편번호를 검색해주세요.');
+		return;
+	} else if (detailAddress === "") {
+		alert('상세주소가 입력되지 않았습니다.');
+		return;
+	}
+
+	alert("회원등록이 완료되었습니다.");
+	htmlForm.submit();
+	
+}
+
+/*function checkValues(htmlForm) {
+
 	let url = "regist?";
 
 	const clientId = document.getElementById("client_id").value;
@@ -106,7 +161,8 @@ function checkValues(htmlForm) {
 		alert("회원등록이 완료되었습니다.");
 		htmlForm.submit();
 	}
-}
+}*/
+
 
 // 아이디, 비밀번호, 운전면허번호 제외 변경 확인
 function checkInfo(htmlForm) {

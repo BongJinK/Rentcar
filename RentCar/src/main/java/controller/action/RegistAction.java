@@ -31,7 +31,7 @@ public class RegistAction implements Action {
 		ClientDao clientDao = ClientDao.getInstance();
 		clientDao.createClient(clientDto);
 
-		response.sendRedirect("/");
+		response.sendRedirect("login");
 	}
 
 }

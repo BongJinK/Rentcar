@@ -70,20 +70,14 @@
 						<th>주소</th>
 						<td>
 							<div>
-								<input type="text" id="sample4_postcode" name="address_postNum"
-									placeholder="우편번호"> <input type="button" id="postcode"
-									onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-								<input type="text" id="sample4_roadAddress"
-									name="address_roadNm" placeholder="도로명주소"> <input
-									type="text" id="sample4_jibunAddress" name="address_jibun"
-									placeholder="지번주소"> <span id="guide"
-									style="color: #999; display: none"></span><br> <input
-									type="text" id="sample4_detailAddress" name="address_detail"
-									placeholder="상세주소"> <input type="text"
-									id="sample4_extraAddress" name="address_extra"
-									placeholder="참고항목">
-								<script
-									src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+								<input type="text" id="sample4_postcode" name="address_postNum" placeholder="우편번호"> 
+								<input type="button" id="postcode" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+								<input type="text" id="sample4_roadAddress" name="address_roadNm" placeholder="도로명주소">
+								<input type="text" id="sample4_jibunAddress" name="address_jibun" placeholder="지번주소">
+								<span id="guide" style="color: #999; display: none"></span><br>
+								<input type="text" id="sample4_detailAddress" name="address_detail" placeholder="상세주소">
+								<input type="text" id="sample4_extraAddress" name="address_extra" placeholder="참고항목">
+								<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 							</div>
 						</td>
 					</tr>
